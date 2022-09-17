@@ -25,9 +25,8 @@ app.get('/', (req, res) => {
 //Member
 app.use('/member', require('./controllers/member.controller'))
 
-
 //login
-app.use('/member/login', require('./controllers/login.controller'))
+app.use('/login', require('./controllers/login.controller'))
 
 // global error handler
 app.use(errorHandler)

@@ -3,18 +3,14 @@ const dbMembers = db.members;
 const smsObj = require("../_helpers/sms");
 
 async function add(req, res) {
-  console.log('reaching in add service')
-  console.log(req.body)
-  var existsMatch = await dbMembers.find({ mobile: req.body.mobile})
-    if(existsMatch.length > 0){
-    return {responseCode: -1}
-  };
-   
-  
+  var existsMatch = await dbMembers.find({ mobile: req.body.mobile });
+  if (existsMatch !== null && existsMatch.length > 0) {
+    return { responseCode: -1 };
+  }
 
-  var result = await dbMembers(req.body).save(req, res);
+  var result = await dbMembers(req.body).save();
 
-  smsObj.SendOtp(req.body.mobile);
+  //smsObj.SendOtp(req.body.mobile);
   return { data: result, responseCode: 1, responseMessage: "success" };
 }
 async function update(req, res, next) {

@@ -2,7 +2,7 @@ const express = require("express");
 const loginService = require("../service/login.service");
 const router = express.Router();
 
-router.post("/login", validate);
+router.post("/", validate);
 
 function validate(req, res, next) {
   loginService

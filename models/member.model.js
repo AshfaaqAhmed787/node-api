@@ -10,9 +10,8 @@ const Member = new Schema({
     max: [127, "Max Length is 127 characters"],
   },
   mobile: { type: String, max: [10] },
-
   email: { type: String },
-address:{type: String},
+  address: { type: String },
   password: { type: String },
 });
 
@@ -21,7 +20,6 @@ Member.pre("save", function (next) {
     next();
     return;
   }
-
   autoIncrementModelID("members", this, next);
 });
 

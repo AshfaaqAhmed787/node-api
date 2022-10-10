@@ -14,8 +14,9 @@ app.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-//app.use(cors())
-
+app.use(cors({
+  origin: '*'
+}));
 app.get('/', (req, res) => {
   console.log('Welcome to NODE API (Port: ' + PORT + ' , Environment: ' + environment.env + ')')
   res.send('Welcome to NODE API (Port: ' + PORT + ' , Environment: ' + environment.env + ')')
@@ -24,9 +25,10 @@ app.get('/', (req, res) => {
 
 //Member
 app.use('/member', require('./controllers/member.controller'))
-
-//login
 app.use('/login', require('./controllers/login.controller'))
+app.use('/customer', require('./controllers/customer.controller'))
+app.use('/state', require('./controllers/state.controller'))
+app.use('/city', require('./controllers/city.controller'))
 
 // global error handler
 app.use(errorHandler)

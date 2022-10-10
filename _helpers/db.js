@@ -12,4 +12,7 @@ mongoose.connect(environment.mongoDbConnectionString, { useCreateIndex: true, us
 
 module.exports = {
   members: require("../models/member.model"),
+  customers:require("../models/customer.model"),
+  state:require("../models/state.model"),
+  city:require("../models/city.model")
 };

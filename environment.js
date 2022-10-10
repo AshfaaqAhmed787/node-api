@@ -1,6 +1,6 @@
 const dev = {
     env: process.env.NODE_ENV,
-    mongoDbConnectionString: "mongodb://localhost:27017/milkman",
+    mongoDbConnectionString: "mongodb://0.0.0.0:27017/milkman",
    
 }
 
